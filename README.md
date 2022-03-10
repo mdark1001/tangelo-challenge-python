@@ -1,6 +1,6 @@
 # Tangelo Challenge Python
 
-Los detalles del reto estan disponibles en [aquí](https://gitlab.sg-zinobe.com/oscar.mendez/challenge-python-l1)
+Los detalles del reto están disponibles  [aquí](https://gitlab.sg-zinobe.com/oscar.mendez/challenge-python-l1)
 
 
 
