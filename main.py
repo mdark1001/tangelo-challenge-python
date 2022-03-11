@@ -24,7 +24,7 @@ def list_cities():
     cities = Country
     start = 0
     if request.args.get('limit', 10):
-        limit = int(request.args.get('limit'))
+        limit = int(request.args.get('limit',10))
     if request.args.get('start', 0):
         start = int(request.args.get('start', 0))
     result = CountrySchema(many=True, only=['id', 'region', 'city_name', 'languages']).dump(cities.select(start=start,

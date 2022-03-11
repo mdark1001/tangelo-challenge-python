@@ -32,3 +32,20 @@ Opcional se pueden ejecutar los test con:
 ```bash 
 $  python -m unittest discover tests/
 ```
+
+
+
+# Flask API
+
+Ejecutar:
+
+```bash
+$  python main.py
+```
+
+Visitar  http://127.0.0.1:5000/city
+
+![image-api](imgs/api.png)
+
+
+
