@@ -32,7 +32,7 @@ class SQLiteStore(DBConnection):
         self.session = Session(bind=self.engine)
 
     def create_connection(self):
-        self.engine = create_engine(f'{self.url}/{self.name}', echo=True)
+        self.engine = create_engine(f'{self.url}/{self.name}', echo=False, connect_args={'check_same_thread': False})
 
 
 db = SQLiteStore()  # Init db class

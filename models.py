@@ -30,6 +30,9 @@ class Country(Base):
         self.languages = languages
         self.time = time
 
+    def __repr__(self):
+        return "Country<region:{}><city_name:{}>".format(self.region, self.city_name)
+
     def create(self):
         db.session.add(self)
         db.session.commit()
@@ -43,6 +46,15 @@ class Country(Base):
             languages=self.languages,
             time=self.time,
         )
+
+    @classmethod
+    def select(cls, start=0, limit=0, filter={}):
+        query = db.session.query(cls)
+        if limit:
+            query = query.slice(start, limit)
+        if filter:
+            return query.filter_by(**filter)
+        return query.all()
 
 
 Base.metadata.create_all(db.engine)

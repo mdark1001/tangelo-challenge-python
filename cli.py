@@ -4,6 +4,7 @@
 @name: cli
 """
 # from tests.test_service import ServiceCountriesFake as RestCountriesService
+import logging
 
 import process
 import store
@@ -19,10 +20,22 @@ def run():
         - Read SQLite and export a JSON File
     :return:
     """
+    print("""Welcome please wait, we're working now....    """)
     data = RestCountriesService().get_all()
     my_process = process.ProcessResponseRestCountries()
     my_process.set_data_frame(data.response)
     my_process.transform()
+    print("""
+        Total Time: {}\n
+        Max Time:   {}\n
+        Min Time:   {}\n
+        Avg Time:   {}\n
+    """.format(
+        my_process.get_total_time(),
+        my_process.get_max_time(),
+        my_process.get_min_time(),
+        my_process.get_avg_time(),
+    ))
     df = my_process.get_df()
     my_store = store.SaveCountries(drop=True)
     my_store.save_dataframe_in_database(df)

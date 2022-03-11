@@ -27,7 +27,7 @@ class SaveCountries:
 
     @staticmethod
     def read_from_database():
-        return db.session.query(Country).all()
+        return Country.select()
 
     @staticmethod
     def save_to_json(filename, items):

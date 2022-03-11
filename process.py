@@ -51,6 +51,7 @@ class ProcessResponseRestCountries(IProcessResponse):
             city_name = row['name']['common']
             _languages = self.hash(self.get_languages(row))
             end_time = time.time()
+
             new_df = new_df.append({
                 'region': row['region'],
                 'city_name': city_name,
